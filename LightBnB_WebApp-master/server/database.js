@@ -210,7 +210,11 @@ exports.getAllProperties = getAllProperties;
  */
 
 //add property info to new listing
-const addProperty = function(property) {
+  const addProperty = function(property) {
+  const propertyId = Object.keys(properties).length + 1;
+  property.id = propertyId;
+  properties[propertyId] = property;
+  return Promise.resolve(property);
 
   const queryParams = [
     property.owner_id,
